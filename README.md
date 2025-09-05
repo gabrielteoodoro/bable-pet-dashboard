@@ -9,7 +9,7 @@
 [![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-0.0%25-red?style=for-the-badge&logo=target&logoColor=white)]()
 [![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-0.0s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
 
-**Última atualização:** `2025-09-05T12:51:59`
+**Última atualização:** `2025-09-05T12:54:14`
 
 </div>
 
@@ -81,7 +81,7 @@ python bable_pet_final.py --modo diagnostico
 ## 📈 Histórico de Testes
 
 **Execução mais recente:**
-- **Timestamp:** 2025-09-05T12:51:59.650668
+- **Timestamp:** 2025-09-05T12:54:14.189020
 - **Resultado:** FALHA
 - **Performance:** 0.0% de sucesso
 - **Processamento:** 0.0s
@@ -102,6 +102,6 @@ python bable_pet_final.py --modo diagnostico
 [![Powered by N8N](https://img.shields.io/badge/Powered%20by-N8N-orange?style=flat&logo=n8n&logoColor=white)](https://n8n.io)
 [![AI by Claude](https://img.shields.io/badge/AI%20by-Claude-purple?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
 
-*Dashboard atualizado: 2025-09-05T12:51:59*
+*Dashboard atualizado: 2025-09-05T12:54:14*
 
 </div>
