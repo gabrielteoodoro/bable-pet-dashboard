@@ -1,0 +1,185 @@
+name: 🎯 Bable Pet Dashboard Update
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # A cada 15 minutos
+  workflow_dispatch:  # Execução manual
+  push:
+    branches: [ main ]
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🔄 Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: 📦 Install Dependencies
+      run: |
+        pip install requests python-dotenv
+    
+    - name: 📊 Update Metrics
+      run: |
+        python << 'EOF'
+        import os
+        import json
+        import requests
+        from datetime import datetime
+        
+        # Configurações
+        N8N_API_KEY = "${{ secrets.N8N_API_KEY }}"
+        N8N_URL = "https://n8n.synapseautointeligente.com.br/api/v1"
+        
+        headers = {
+            'X-N8N-API-KEY': N8N_API_KEY,
+            'Content-Type': 'application/json'
+        }
+        
+        try:
+            # Coletar métricas
+            response = requests.get(f"{N8N_URL}/workflows", headers=headers, timeout=15)
+            
+            if response.status_code == 200:
+                workflows = response.json()
+                
+                # Filtrar Bable Pet workflows
+                bable_workflows = [
+                    wf for wf in workflows 
+                    if any(keyword in wf.get('name', '').lower() 
+                          for keyword in ['bable', 'agente', 'consultor', 'orquestrador'])
+                ]
+                
+                metrics = {
+                    'timestamp': datetime.now().isoformat(),
+                    'total_workflows': len(workflows),
+                    'bable_workflows': len(bable_workflows),
+                    'active_workflows': sum(1 for wf in bable_workflows if wf.get('active', False)),
+                    'workflow_details': [
+                        {
+                            'id': wf['id'],
+                            'name': wf['name'],
+                            'active': wf.get('active', False),
+                            'updated': wf.get('updatedAt')
+                        }
+                        for wf in bable_workflows
+                    ]
+                }
+                
+                # Obter execuções recentes
+                exec_response = requests.get(
+                    f"{N8N_URL}/executions", 
+                    headers=headers,
+                    params={'limit': 50},
+                    timeout=10
+                )
+                
+                if exec_response.status_code == 200:
+                    executions = exec_response.json().get('data', [])
+                    successful = sum(1 for ex in executions if ex.get('status') == 'success')
+                    metrics['success_rate'] = (successful / len(executions)) * 100 if executions else 0
+                    metrics['total_executions'] = len(executions)
+                    metrics['last_execution'] = executions[0].get('id') if executions else None
+                
+                # Salvar métricas
+                with open('metrics.json', 'w') as f:
+                    json.dump(metrics, f, indent=2)
+                
+                print(f"✅ Métricas coletadas: {metrics['active_workflows']} workflows ativos")
+                
+            else:
+                print(f"❌ Erro ao buscar workflows: {response.status_code}")
+                
+        except Exception as e:
+            print(f"❌ Erro: {e}")
+        EOF
+    
+    - name: 📝 Generate Updated README
+      run: |
+        python << 'EOF'
+        import json
+        import os
+        from datetime import datetime
+        
+        # Carregar métricas
+        try:
+            with open('metrics.json', 'r') as f:
+                metrics = json.load(f)
+        except:
+            print("❌ Não foi possível carregar métricas")
+            exit(1)
+        
+        # Gerar README atualizado
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        success_rate = metrics.get('success_rate', 0)
+        
+        status_color = "brightgreen" if success_rate >= 90 else "yellow" if success_rate >= 75 else "red"
+        
+        readme_content = f'''# 🎯 Bable Pet - Sistema Multiagente Dashboard
+
+<div align="center">
+
+![Bable Pet Logo](https://img.shields.io/badge/🐾-BABLE%20PET-blue?style=for-the-badge)
+
+[![Sistema Status](https://img.shields.io/badge/Sistema-OPERACIONAL-{status_color}?style=for-the-badge&logo=checkmarx&logoColor=white)]()
+[![Workflows Ativos](https://img.shields.io/badge/Workflows-{metrics.get('active_workflows', 0)}%20Ativos-blue?style=for-the-badge&logo=github-actions&logoColor=white)]()
+[![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-{success_rate:.1f}%25-{status_color}?style=for-the-badge&logo=target&logoColor=white)]()
+[![Execuções](https://img.shields.io/badge/Execu%C3%A7%C3%B5es-{metrics.get('total_executions', 0)}-blue?style=for-the-badge&logo=activity&logoColor=white)]()
+
+*Última atualização: {current_time}*
+
+</div>
+
+## 📊 Status dos Workflows
+
+| Workflow | Status | ID | Última Atualização |
+|----------|--------|----|--------------------|'''
+        
+        for wf in metrics.get('workflow_details', []):
+            status_emoji = "🟢" if wf['active'] else "🔴"
+            readme_content += f'''
+| {wf['name']} | {status_emoji} {'Ativo' if wf['active'] else 'Inativo'} | `{wf['id']}` | {wf.get('updated', 'N/A')[:10]} |'''
+        
+        readme_content += f'''
+
+## 🚀 Métricas Gerais
+
+- **Total de Workflows:** {metrics.get('total_workflows', 0)}
+- **Workflows Bable Pet:** {metrics.get('bable_workflows', 0)}  
+- **Workflows Ativos:** {metrics.get('active_workflows', 0)}
+- **Taxa de Sucesso:** {success_rate:.1f}%
+- **Total de Execuções:** {metrics.get('total_executions', 0)}
+- **Última Execução:** `{metrics.get('last_execution', 'N/A')}`
+
+---
+
+**🤖 Atualizado automaticamente via GitHub Actions**
+'''
+        
+        # Escrever README
+        with open('README.md', 'w', encoding='utf-8') as f:
+            f.write(readme_content)
+        
+        print("✅ README atualizado")
+        EOF
+    
+    - name: 🚀 Commit and Push Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "Bable Pet Bot"
+        
+        if git diff --quiet; then
+          echo "⏭️ Nenhuma alteração detectada"
+        else
+          git add .
+          git commit -m "🤖 Update dashboard metrics - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "✅ Dashboard atualizado!"
+        fi
