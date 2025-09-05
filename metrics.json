@@ -1,10 +1,19 @@
 {
-  "total_workflows": 0,
-  "active_workflows": 0,
-  "ai_nodes_count": 0,
-  "success_rate": 0.0,
-  "avg_response_time": 0.0,
-  "total_tests": 0,
-  "last_execution_id": null,
-  "agents_performance": {}
+  "timestamp": "2025-09-05T12:51:59.650668",
+  "last_test_execution": {
+    "execution_id": null,
+    "success": false,
+    "execution_time": 0,
+    "mode": "webhook",
+    "scenarios_tested": 1,
+    "success_rate": 0.0,
+    "agents_performance": {},
+    "total_nodes_processed": 0
+  },
+  "system_status": {
+    "operational": false,
+    "last_update": "2025-09-05T12:51:59.650668",
+    "active_workflows": 1,
+    "total_workflows": 1
+  }
 }
