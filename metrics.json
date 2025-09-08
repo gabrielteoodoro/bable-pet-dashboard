@@ -1,18 +1,18 @@
 {
-  "timestamp": "2025-09-08T19:00:47.801185",
+  "timestamp": "2025-09-08T19:02:19.548132",
   "last_test_execution": {
-    "execution_id": null,
-    "success": false,
-    "execution_time": 0,
+    "execution_id": "6354",
+    "success": true,
+    "execution_time": 7.994240760803223,
     "mode": "webhook",
     "scenarios_tested": 1,
-    "success_rate": 0.0,
+    "success_rate": 100.0,
     "agents_performance": {},
     "total_nodes_processed": 0
   },
   "system_status": {
-    "operational": false,
-    "last_update": "2025-09-08T19:00:47.801185",
+    "operational": true,
+    "last_update": "2025-09-08T19:02:19.548132",
     "active_workflows": 1,
     "total_workflows": 1
   }
