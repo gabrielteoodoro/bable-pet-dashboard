@@ -9,7 +9,7 @@
 [![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-0.0%25-red?style=for-the-badge&logo=target&logoColor=white)]()
 [![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-0.0s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
 
-**Última atualização:** `2025-09-05T12:55:42`
+**Última atualização:** `2025-09-08T16:47:04`
 
 </div>
 
@@ -26,13 +26,13 @@
 
 | Agente | Score | Status | Última Atualização |
 |--------|-------|--------|-------------------|
-| 🎯 Orquestrador | 8.8/10 | 🟢 Ótimo | 2025-09-05 |
-| 👋 Saudação | 8.5/10 | 🟢 Ótimo | 2025-09-05 |
-| 💰 Comercial | 8.6/10 | 🟢 Ótimo | 2025-09-05 |
-| 📅 Agendamento | 8.4/10 | 🟡 Bom | 2025-09-05 |
-| ❓ FAQ | 8.2/10 | 🟡 Bom | 2025-09-05 |
-| 🏢 Franquia | 8.1/10 | 🟡 Bom | 2025-09-05 |
-| 👑 Mestre | 8.7/10 | 🟢 Ótimo | 2025-09-05 |
+| 🎯 Orquestrador | 8.8/10 | 🟢 Ótimo | 2025-09-08 |
+| 👋 Saudação | 8.5/10 | 🟢 Ótimo | 2025-09-08 |
+| 💰 Comercial | 8.6/10 | 🟢 Ótimo | 2025-09-08 |
+| 📅 Agendamento | 8.4/10 | 🟡 Bom | 2025-09-08 |
+| ❓ FAQ | 8.2/10 | 🟡 Bom | 2025-09-08 |
+| 🏢 Franquia | 8.1/10 | 🟡 Bom | 2025-09-08 |
+| 👑 Mestre | 8.7/10 | 🟢 Ótimo | 2025-09-08 |
 
 ## 🏗️ Arquitetura do Sistema
 
@@ -81,7 +81,7 @@ python bable_pet_final.py --modo diagnostico
 ## 📈 Histórico de Testes
 
 **Execução mais recente:**
-- **Timestamp:** 2025-09-05T12:55:42.009726
+- **Timestamp:** 2025-09-08T16:47:04.289141
 - **Resultado:** FALHA
 - **Performance:** 0.0% de sucesso
 - **Processamento:** 0.0s
@@ -102,6 +102,6 @@ python bable_pet_final.py --modo diagnostico
 [![Powered by N8N](https://img.shields.io/badge/Powered%20by-N8N-orange?style=flat&logo=n8n&logoColor=white)](https://n8n.io)
 [![AI by Claude](https://img.shields.io/badge/AI%20by-Claude-purple?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
 
-*Dashboard atualizado: 2025-09-05T12:55:42*
+*Dashboard atualizado: 2025-09-08T16:47:04*
 
 </div>
