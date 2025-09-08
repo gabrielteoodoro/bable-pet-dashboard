@@ -1,23 +1,19 @@
 {
-  "timestamp": "2025-09-08T19:03:17.642806",
+  "timestamp": "2025-09-08T19:03:43.254754",
   "last_test_execution": {
-    "execution_id": null,
+    "execution_id": "6359",
     "success": true,
-    "execution_time": 6.41085942586263,
-    "mode": "otimizacao",
-    "scenarios_tested": 3,
+    "execution_time": 6.354583740234375,
+    "mode": "webhook",
+    "scenarios_tested": 1,
     "success_rate": 100.0,
-    "agents_performance": {
-      "Otimização 4-Agentes": 8.5,
-      "Análise Performance": 10.0,
-      "Qualidade": 1.0
-    },
+    "agents_performance": {},
     "total_nodes_processed": 0
   },
   "system_status": {
     "operational": true,
-    "last_update": "2025-09-08T19:03:17.642806",
-    "active_workflows": 2,
-    "total_workflows": 34
+    "last_update": "2025-09-08T19:03:43.254754",
+    "active_workflows": 1,
+    "total_workflows": 1
   }
 }
