@@ -4,21 +4,21 @@
 
 ![Bable Pet Logo](https://img.shields.io/badge/🐾-BABLE%20PET-blue?style=for-the-badge)
 
-[![Sistema Status](https://img.shields.io/badge/Sistema-OFFLINE-red?style=for-the-badge&logo=checkmarx&logoColor=white)]()
+[![Sistema Status](https://img.shields.io/badge/Sistema-OPERACIONAL-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)]()
 [![Workflows Ativos](https://img.shields.io/badge/Workflows-1%20Ativos-blue?style=for-the-badge&logo=github-actions&logoColor=white)]()
-[![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-0.0%25-red?style=for-the-badge&logo=target&logoColor=white)]()
-[![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-0.0s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
+[![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-100.0%25-brightgreen?style=for-the-badge&logo=target&logoColor=white)]()
+[![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-8.0s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
 
-**Última atualização:** `2025-09-08T19:00:47`
+**Última atualização:** `2025-09-08T19:02:19`
 
 </div>
 
 ## 📊 Última Execução de Teste
 
-- **ID da Execução:** `None`
+- **ID da Execução:** `6354`
 - **Modo de Teste:** WEBHOOK
-- **Status:** ❌ FALHA
-- **Tempo de Execução:** 0.0s
+- **Status:** ✅ SUCESSO
+- **Tempo de Execução:** 8.0s
 - **Cenários Testados:** 1
 - **Nodes Processados:** 0
 
@@ -56,10 +56,10 @@ graph TD
 
 ## 🚀 Status do Sistema
 
-- **Operacional:** ❌ NÃO
+- **Operacional:** ✅ SIM
 - **Total de Workflows:** 1
 - **Workflows Ativos:** 1
-- **Última Execução:** `None`
+- **Última Execução:** `6354`
 
 ## 🛠️ Comandos de Teste
 
@@ -81,10 +81,10 @@ python bable_pet_final.py --modo diagnostico
 ## 📈 Histórico de Testes
 
 **Execução mais recente:**
-- **Timestamp:** 2025-09-08T19:00:47.801185
-- **Resultado:** FALHA
-- **Performance:** 0.0% de sucesso
-- **Processamento:** 0.0s
+- **Timestamp:** 2025-09-08T19:02:19.548132
+- **Resultado:** SUCESSO
+- **Performance:** 100.0% de sucesso
+- **Processamento:** 8.0s
 
 ## 🔗 Links Úteis
 
@@ -102,6 +102,6 @@ python bable_pet_final.py --modo diagnostico
 [![Powered by N8N](https://img.shields.io/badge/Powered%20by-N8N-orange?style=flat&logo=n8n&logoColor=white)](https://n8n.io)
 [![AI by Claude](https://img.shields.io/badge/AI%20by-Claude-purple?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
 
-*Dashboard atualizado: 2025-09-08T19:00:47*
+*Dashboard atualizado: 2025-09-08T19:02:19*
 
 </div>
