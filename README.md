@@ -7,18 +7,18 @@
 [![Sistema Status](https://img.shields.io/badge/Sistema-OPERACIONAL-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)]()
 [![Workflows Ativos](https://img.shields.io/badge/Workflows-1%20Ativos-blue?style=for-the-badge&logo=github-actions&logoColor=white)]()
 [![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-100.0%25-brightgreen?style=for-the-badge&logo=target&logoColor=white)]()
-[![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-7.8s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
+[![Tempo Resposta](https://img.shields.io/badge/Tempo%20M%C3%A9dio-6.3s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
 
-**Última atualização:** `2025-09-08T19:13:15`
+**Última atualização:** `2025-09-08T19:13:59`
 
 </div>
 
 ## 📊 Última Execução de Teste
 
-- **ID da Execução:** `6365`
+- **ID da Execução:** `6366`
 - **Modo de Teste:** WEBHOOK
 - **Status:** ✅ SUCESSO
-- **Tempo de Execução:** 7.8s
+- **Tempo de Execução:** 6.3s
 - **Cenários Testados:** 1
 - **Nodes Processados:** 0
 
@@ -59,7 +59,7 @@ graph TD
 - **Operacional:** ✅ SIM
 - **Total de Workflows:** 1
 - **Workflows Ativos:** 1
-- **Última Execução:** `6365`
+- **Última Execução:** `6366`
 
 ## 🛠️ Comandos de Teste
 
@@ -81,10 +81,10 @@ python bable_pet_final.py --modo diagnostico
 ## 📈 Histórico de Testes
 
 **Execução mais recente:**
-- **Timestamp:** 2025-09-08T19:13:15.261447
+- **Timestamp:** 2025-09-08T19:13:59.315682
 - **Resultado:** SUCESSO
 - **Performance:** 100.0% de sucesso
-- **Processamento:** 7.8s
+- **Processamento:** 6.3s
 
 ## 🔗 Links Úteis
 
@@ -102,6 +102,6 @@ python bable_pet_final.py --modo diagnostico
 [![Powered by N8N](https://img.shields.io/badge/Powered%20by-N8N-orange?style=flat&logo=n8n&logoColor=white)](https://n8n.io)
 [![AI by Claude](https://img.shields.io/badge/AI%20by-Claude-purple?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
 
-*Dashboard atualizado: 2025-09-08T19:13:15*
+*Dashboard atualizado: 2025-09-08T19:13:59*
 
 </div>
