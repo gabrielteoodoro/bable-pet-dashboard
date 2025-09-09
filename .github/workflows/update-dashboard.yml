@@ -1,4 +1,4 @@
-name: 🎯 Bable Pet Dashboard Update
+name: Bable Pet Dashboard Update
 
 on:
   schedule:
@@ -12,21 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 🔄 Checkout Repository
+    - name: Checkout Repository
       uses: actions/checkout@v3
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: 🐍 Setup Python
+    - name: Setup Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
     
-    - name: 📦 Install Dependencies
+    - name: Install Dependencies
       run: |
         pip install requests python-dotenv
     
-    - name: 📊 Update Metrics
+    - name: Update Metrics
       run: |
         python << 'EOF'
         import os
@@ -54,7 +54,7 @@ jobs:
                 bable_workflows = [
                     wf for wf in workflows 
                     if any(keyword in wf.get('name', '').lower() 
-                          for keyword in ['bable', 'agente', 'consultor', 'orquestrador'])
+                           for keyword in ['bable', 'agente', 'consultor', 'orquestrador'])
                 ]
                 
                 metrics = {
@@ -92,16 +92,16 @@ jobs:
                 with open('metrics.json', 'w') as f:
                     json.dump(metrics, f, indent=2)
                 
-                print(f"✅ Métricas coletadas: {metrics['active_workflows']} workflows ativos")
+                print(f"Metricas coletadas: {metrics['active_workflows']} workflows ativos")
                 
             else:
-                print(f"❌ Erro ao buscar workflows: {response.status_code}")
+                print(f"Erro ao buscar workflows: {response.status_code}")
                 
         except Exception as e:
-            print(f"❌ Erro: {e}")
+            print(f"Erro: {e}")
         EOF
     
-    - name: 📝 Generate Updated README
+    - name: Generate Updated README
       run: |
         python << 'EOF'
         import json
@@ -113,7 +113,7 @@ jobs:
             with open('metrics.json', 'r') as f:
                 metrics = json.load(f)
         except:
-            print("❌ Não foi possível carregar métricas")
+            print("Nao foi possivel carregar metricas")
             exit(1)
         
         # Gerar README atualizado
@@ -122,64 +122,64 @@ jobs:
         
         status_color = "brightgreen" if success_rate >= 90 else "yellow" if success_rate >= 75 else "red"
         
-        readme_content = f'''# 🎯 Bable Pet - Sistema Multiagente Dashboard
+        readme_content = f'''# Bable Pet - Sistema Multiagente Dashboard
 
 <div align="center">
 
-![Bable Pet Logo](https://img.shields.io/badge/🐾-BABLE%20PET-blue?style=for-the-badge)
+![Bable Pet Logo](https://img.shields.io/badge/BABLE%20PET-Sistema%20AI-blue?style=for-the-badge)
 
 [![Sistema Status](https://img.shields.io/badge/Sistema-OPERACIONAL-{status_color}?style=for-the-badge&logo=checkmarx&logoColor=white)]()
 [![Workflows Ativos](https://img.shields.io/badge/Workflows-{metrics.get('active_workflows', 0)}%20Ativos-blue?style=for-the-badge&logo=github-actions&logoColor=white)]()
 [![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-{success_rate:.1f}%25-{status_color}?style=for-the-badge&logo=target&logoColor=white)]()
-[![Execuções](https://img.shields.io/badge/Execu%C3%A7%C3%B5es-{metrics.get('total_executions', 0)}-blue?style=for-the-badge&logo=activity&logoColor=white)]()
+[![Execucoes](https://img.shields.io/badge/Execucoes-{metrics.get('total_executions', 0)}-blue?style=for-the-badge&logo=activity&logoColor=white)]()
 
-*Última atualização: {current_time}*
+*Ultima atualizacao: {current_time}*
 
 </div>
 
-## 📊 Status dos Workflows
+## Status dos Workflows
 
-| Workflow | Status | ID | Última Atualização |
+| Workflow | Status | ID | Ultima Atualizacao |
 |----------|--------|----|--------------------|'''
         
         for wf in metrics.get('workflow_details', []):
-            status_emoji = "🟢" if wf['active'] else "🔴"
+            status_indicator = "[ATIVO]" if wf['active'] else "[INATIVO]"
             readme_content += f'''
-| {wf['name']} | {status_emoji} {'Ativo' if wf['active'] else 'Inativo'} | `{wf['id']}` | {wf.get('updated', 'N/A')[:10]} |'''
+| {wf['name']} | {status_indicator} {'Ativo' if wf['active'] else 'Inativo'} | `{wf['id']}` | {wf.get('updated', 'N/A')[:10]} |'''
         
         readme_content += f'''
 
-## 🚀 Métricas Gerais
+## Metricas Gerais
 
 - **Total de Workflows:** {metrics.get('total_workflows', 0)}
 - **Workflows Bable Pet:** {metrics.get('bable_workflows', 0)}  
 - **Workflows Ativos:** {metrics.get('active_workflows', 0)}
 - **Taxa de Sucesso:** {success_rate:.1f}%
-- **Total de Execuções:** {metrics.get('total_executions', 0)}
-- **Última Execução:** `{metrics.get('last_execution', 'N/A')}`
+- **Total de Execucoes:** {metrics.get('total_executions', 0)}
+- **Ultima Execucao:** `{metrics.get('last_execution', 'N/A')}`
 
 ---
 
-**🤖 Atualizado automaticamente via GitHub Actions**
+**Atualizado automaticamente via GitHub Actions**
 '''
         
         # Escrever README
         with open('README.md', 'w', encoding='utf-8') as f:
             f.write(readme_content)
         
-        print("✅ README atualizado")
+        print("README atualizado")
         EOF
     
-    - name: 🚀 Commit and Push Changes
+    - name: Commit and Push Changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "Bable Pet Bot"
         
         if git diff --quiet; then
-          echo "⏭️ Nenhuma alteração detectada"
+          echo "Nenhuma alteracao detectada"
         else
           git add .
-          git commit -m "🤖 Update dashboard metrics - $(date '+%Y-%m-%d %H:%M:%S')"
+          git commit -m "Update dashboard metrics - $(date '+%Y-%m-%d %H:%M:%S')"
           git push
-          echo "✅ Dashboard atualizado!"
+          echo "Dashboard atualizado!"
         fi
