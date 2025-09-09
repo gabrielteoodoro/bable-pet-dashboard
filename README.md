@@ -7,18 +7,18 @@
 [![Sistema Status](https://img.shields.io/badge/Sistema-OPERACIONAL-brightgreen?style=for-the-badge&logo=checkmarx&logoColor=white)]()
 [![Workflows Ativos](https://img.shields.io/badge/Workflows-1%20Ativos-blue?style=for-the-badge&logo=github-actions&logoColor=white)]()
 [![Taxa Sucesso](https://img.shields.io/badge/Taxa%20Sucesso-100.0%25-brightgreen?style=for-the-badge&logo=target&logoColor=white)]()
-[![Tempo Resposta](https://img.shields.io/badge/Tempo%20Medio-7.0s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
+[![Tempo Resposta](https://img.shields.io/badge/Tempo%20Medio-7.1s-brightgreen?style=for-the-badge&logo=stopwatch&logoColor=white)]()
 
-**Ultima atualizacao:** `2025-09-08T19:19:03`
+**Ultima atualizacao:** `2025-09-08T21:49:06`
 
 </div>
 
 ## Ultima Execucao de Teste
 
-- **ID da Execucao:** `6370`
+- **ID da Execucao:** `6372`
 - **Modo de Teste:** WEBHOOK
 - **Status:** [OK] SUCESSO
-- **Tempo de Execucao:** 7.0s
+- **Tempo de Execucao:** 7.1s
 - **Cenarios Testados:** 1
 - **Nodes Processados:** 0
 
@@ -59,7 +59,7 @@ graph TD
 - **Operacional:** [OK] SIM
 - **Total de Workflows:** 1
 - **Workflows Ativos:** 1
-- **Ultima Execucao:** `6370`
+- **Ultima Execucao:** `6372`
 
 ## Comandos de Teste
 
@@ -81,10 +81,10 @@ python bable_pet_final.py --modo diagnostico
 ## Historico de Testes
 
 **Execucao mais recente:**
-- **Timestamp:** 2025-09-08T19:19:03.843858
+- **Timestamp:** 2025-09-08T21:49:06.080822
 - **Resultado:** SUCESSO
 - **Performance:** 100.0% de sucesso
-- **Processamento:** 7.0s
+- **Processamento:** 7.1s
 
 ## Links Uteis
 
@@ -102,6 +102,6 @@ python bable_pet_final.py --modo diagnostico
 [![Powered by N8N](https://img.shields.io/badge/Powered%20by-N8N-orange?style=flat&logo=n8n&logoColor=white)](https://n8n.io)
 [![AI by Claude](https://img.shields.io/badge/AI%20by-Claude-purple?style=flat&logo=anthropic&logoColor=white)](https://claude.ai)
 
-*Dashboard atualizado: 2025-09-08T19:19:03*
+*Dashboard atualizado: 2025-09-08T21:49:06*
 
 </div>
